@@ -7,9 +7,9 @@ const {
   getMyJobs,
   getJobById,
   //searchJobs,
-  getSkillBasedJobs,
-  getLatestJobs,
-  getActiveJobs
+  // getSkillBasedJobs,
+  // getLatestJobs,
+  // getActiveJobs
 
 
 } = require('../controllers/jobController');
@@ -30,9 +30,9 @@ router.get('/:jobId', getJobById);
 //console.log('typeof searchJobs:', typeof searchJobs);
 
 
-router.get('/active/:userId', getActiveJobs);
-router.get('/latest', getLatestJobs);
-router.get('/based-on-skills/:userId', getSkillBasedJobs);
+// router.get('/active/:userId', getActiveJobs);
+// router.get('/latest', getLatestJobs);
+// router.get('/based-on-skills/:userId', getSkillBasedJobs);
 
 
 module.exports = router;

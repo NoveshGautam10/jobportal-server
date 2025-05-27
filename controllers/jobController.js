@@ -166,32 +166,32 @@ exports.searchJobs = async (req, res) => {
 
 
 
-exports.getActiveJobs = async (req, res) => {
-  try {
-    const activeJobs = await Job.find({ status: 'active' }).limit(20);
-    res.json(activeJobs);
-  } catch (err) {
-    res.status(500).json({ error: 'Active jobs fetch failed' });
-  }
-};
+// exports.getActiveJobs = async (req, res) => {
+//   try {
+//     const activeJobs = await Job.find({ status: 'active' }).limit(20);
+//     res.json(activeJobs);
+//   } catch (err) {
+//     res.status(500).json({ error: 'Active jobs fetch failed' });
+//   }
+// };
 
-exports.getLatestJobs = async (req, res) => {
-  try {
-    const latestJobs = await Job.find().sort({ createdAt: -1 }).limit(28);
-    res.json(latestJobs);
-  } catch (err) {
-    res.status(500).json({ error: 'Latest jobs fetch failed' });
-  }
-};
+// exports.getLatestJobs = async (req, res) => {
+//   try {
+//     const latestJobs = await Job.find().sort({ createdAt: -1 }).limit(28);
+//     res.json(latestJobs);
+//   } catch (err) {
+//     res.status(500).json({ error: 'Latest jobs fetch failed' });
+//   }
+// };
 
-exports.getJobsByUserSkills = async (req, res) => {
-  try {
-    const user = await User.findById(req.user.id);
-    const skillSet = user.skills || [];
+// exports.getJobsByUserSkills = async (req, res) => {
+//   try {
+//     const user = await User.findById(req.user.id);
+//     const skillSet = user.skills || [];
 
-    const jobs = await Job.find({ skills: { $in: skillSet } }).limit(28);
-    res.json(jobs);
-  } catch (err) {
-    res.status(500).json({ error: 'Skill-based jobs fetch failed' });
-  }
-};
+//     const jobs = await Job.find({ skills: { $in: skillSet } }).limit(28);
+//     res.json(jobs);
+//   } catch (err) {
+//     res.status(500).json({ error: 'Skill-based jobs fetch failed' });
+//   }
+// };
