@@ -84,8 +84,12 @@ app.use('/api/application', require('./routes/application'));
 app.use('/api/reviews', require('./routes/reviews'));
 app.use('/api/categories', require('./routes/categories'));
 app.use("/api/dashboard", require("./routes/dashboard"));
+app.use('/api/support', require('./routes/message'));
+app.use("/api", require("./routes/settings"));
+app.use('/api/profile', require('./routes/profileAnalytics'));
 
 // DB connection and server start
+
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
         app.listen(process.env.PORT || 5000, () => {
